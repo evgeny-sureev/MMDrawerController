@@ -242,6 +242,8 @@ typedef void (^MMDrawerControllerDrawerVisualStateBlock)(MMDrawerController * dr
  */
 @property (nonatomic, strong) UIColor * statusBarViewBackgroundColor;
 
+@property (nonatomic, assign) float leftDrawerPreviewSize;
+
 /**
  The value determining panning range of centerView's bezel if the user can open drawer with 'MMOpenDrawerGestureModeBezelPanningCenterView' or close drawer with 'MMCloseDrawerGestureModeBezelPanningCenterView' .
  

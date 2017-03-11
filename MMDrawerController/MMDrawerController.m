@@ -437,7 +437,7 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
     
     [self addChildViewController:self.centerViewController];
     CGRect frame = self.childControllerContainerView.bounds;
-    if( UIInterfaceOrientationIsLandscape(self.interfaceOrientation) ) {
+    if( UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
         frame.size.width -= 256;
     } else {
         frame.size.width -= self.leftDrawerPreviewSize;

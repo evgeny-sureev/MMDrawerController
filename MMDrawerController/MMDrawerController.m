@@ -411,8 +411,7 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
     CGRect centerFrame = self.childControllerContainerView.bounds;
     if(_centerContainerView == nil){
         _centerContainerView = [[MMDrawerCenterContainerView alloc] initWithFrame:centerFrame];
-        //[self.centerContainerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-        [self.centerContainerView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+        [self.centerContainerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [self.centerContainerView setBackgroundColor:[UIColor clearColor]];
         [self.centerContainerView setOpenSide:self.openSide];
         [self.centerContainerView setCenterInteractionMode:self.centerHiddenInteractionMode];
@@ -437,16 +436,11 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
     
     [self addChildViewController:self.centerViewController];
     CGRect frame = self.childControllerContainerView.bounds;
-    if( UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
-        frame.size.width -= 256;
-    } else {
-        frame.size.width -= self.leftDrawerPreviewSize;
-    }
+    frame.size.width -= self.leftDrawerPreviewSize;
     [self.centerViewController.view setFrame:frame];
     [self.centerContainerView addSubview:self.centerViewController.view];
     [self.childControllerContainerView bringSubviewToFront:self.centerContainerView];
-    //[self.centerViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-    [self.centerViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+    [self.centerViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [self updateShadowForCenterView];
     
     if(animated == NO){
@@ -852,8 +846,8 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
         frame.origin.x += leftDrawerPreviewSize;
         frame.size.width -= leftDrawerPreviewSize;
         _centerContainerView.frame = frame;
-        [_centerContainerView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
-        [self.centerViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+        [_centerContainerView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+        [self.centerViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
         
         [_leftDrawerViewController.view setHidden:NO];
         
